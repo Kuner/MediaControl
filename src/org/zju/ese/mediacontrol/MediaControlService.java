@@ -132,7 +132,7 @@ public class MediaControlService extends Service implements OnShakeListener,Runn
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		SynchronizedManager manager = new SynchronizedManager(serverAddress);
+		SynchronizedManager manager = new SynchronizedManager(serverAddress,minaPort+100);
 		try {
 			manager.startSynchronize();
 		} catch (IOException e) {

@@ -13,10 +13,10 @@ public class SynchronizedManager {
 	
 	final String localBasePath = "/sdcard/ftp/";
 	
-	public SynchronizedManager(String address)
+	public SynchronizedManager(String address,int port)
 	{
 		serverAddress = address;
-		ftpClient = new FTP(serverAddress,username,password);
+		ftpClient = new FTP(serverAddress,username,password,port);
 	}
 	
 	public void startSynchronize() throws IOException

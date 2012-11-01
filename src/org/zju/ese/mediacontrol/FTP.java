@@ -60,6 +60,8 @@ public class FTP {
      * 统计流量.
      */
     private double response;
+    
+    int port;
 
     /**
      * 构造函数.
@@ -67,12 +69,13 @@ public class FTP {
      * @param user userName 用户名
      * @param pass password 密码
      */
-    public FTP(String host, String user, String pass) {
+    public FTP(String host, String user, String pass,int port) {
         this.hostName = host;
         this.userName = user;
         this.password = pass;
         this.ftpClient = new FTPClient();
         this.list = new ArrayList<FTPFile>();
+        this.port = port;
     }
 
     /**
@@ -85,7 +88,7 @@ public class FTP {
     	//ftpClient.setControlEncoding("GBK");
         int reply; // 服务器响应值
         // 连接至服务器
-        ftpClient.connect(hostName,2221);
+        ftpClient.connect(hostName,port);
         // 获取响应值
         reply = ftpClient.getReplyCode();
         if (!FTPReply.isPositiveCompletion(reply)) {
